@@ -68,7 +68,7 @@ int main(void)
 	GPIOA->AFR[1] |= GPIO_AF_TIM1;
 
 	//Set prescaler
-	TIM1->PSC = 1000;
+	TIM1->PSC = 10;
 	//Set ARR
 	TIM1->ARR = 1000;
 	//Set duty cycle
