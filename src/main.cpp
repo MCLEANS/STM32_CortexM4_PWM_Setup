@@ -60,6 +60,11 @@ int main(void)
 
 	//Enable timer 1 RCC
 	RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
+	//Enable output port RCC
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+	//Set alternate function mode PA8
+	GPIOA->MODER |= GPIO_MODER_MODER8_1;
+
 	//Set prescaler
 	TIM1->PSC = 1000;
 	//Set ARR
