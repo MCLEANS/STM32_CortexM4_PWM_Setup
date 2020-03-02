@@ -10,10 +10,14 @@
 
 
 #include "stm32f4xx.h"
+
+int how_to_save_a_life = 0;
 			
 
 int main(void)
 {
+
+
 	//---------Configure PLL 168MHz as clock source-------------
 		//SET FLASH MEMORY LATENCY AND ENABLE PREFETCH
 			FLASH->ACR &= ~FLASH_ACR_LATENCY;
@@ -52,7 +56,30 @@ int main(void)
 			//check to confirm PLL being used
 			while(!(RCC->CFGR & RCC_CFGR_SWS_PLL )){}
 
-		//------------------------------------------------------
+		//--------------------------------------------------
+
+	//Enable timer 1 RCC
+	RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
+	//Set prescaler
+	TIM1->PSC = 1000;
+	//Set ARR
+	TIM1->ARR = 1000;
+	//Set duty cycle
+	TIM1->CCR1 = 500;
+	//Enable timer 1
+	TIM1->CR1 |= TIM_CR1_CEN;
+
+	//Set the output compare mode to PWM Mode 1
+	TIM1->CCMR1 &= ~TIM_CCMR1_OC1M_0;
+	TIM1->CCMR1 |= TIM_CCMR1_OC1M_1;
+	TIM1->CCMR1 |= TIM_CCMR1_OC1M_2;
+
+
+
+
+
+
+
 
 
 	while(1){
