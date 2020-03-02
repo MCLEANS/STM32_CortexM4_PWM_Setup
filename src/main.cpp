@@ -78,7 +78,7 @@ int main(void)
 	TIM1->CCR1 = 500;
 
 	//Set the output compare mode to PWM Mode 1
-	TIM1->CCMR1 &= ~TIM_CCMR1_OC1M_0;
+	TIM1->CCMR1 &= ~(TIM_CCMR1_OC1M_0);
 	TIM1->CCMR1 |= TIM_CCMR1_OC1M_1;
 	TIM1->CCMR1 |= TIM_CCMR1_OC1M_2;
 
