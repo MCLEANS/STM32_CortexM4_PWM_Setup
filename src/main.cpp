@@ -71,13 +71,16 @@ int main(void)
 	TIM1->ARR = 1000;
 	//Set duty cycle
 	TIM1->CCR1 = 500;
-	//Enable timer 1
-	TIM1->CR1 |= TIM_CR1_CEN;
 
 	//Set the output compare mode to PWM Mode 1
 	TIM1->CCMR1 &= ~TIM_CCMR1_OC1M_0;
 	TIM1->CCMR1 |= TIM_CCMR1_OC1M_1;
 	TIM1->CCMR1 |= TIM_CCMR1_OC1M_2;
+
+	//Enable timer 1
+	TIM1->CR1 |= TIM_CR1_CEN;
+
+
 
 
 
