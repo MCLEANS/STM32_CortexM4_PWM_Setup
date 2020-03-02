@@ -65,7 +65,10 @@ int main(void)
 	//Set alternate function mode PA8
 	GPIOA->MODER |= GPIO_MODER_MODER8_1;
 	//set the specific alternate function
-	GPIOA->AFR[1] |= GPIO_AF_TIM1;
+	GPIOA->AFR[1] |= (1<<0);
+	GPIOA->AFR[1] &= ~(1<<1);
+	GPIOA->AFR[1] &= ~(1<<2);
+	GPIOA->AFR[1] &= ~(1<<3);
 
 	//Set prescaler
 	TIM1->PSC = 1000;
