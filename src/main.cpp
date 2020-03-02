@@ -11,7 +11,6 @@
 
 #include "stm32f4xx.h"
 
-int how_to_save_a_life = 0;
 			
 
 int main(void)
@@ -75,7 +74,7 @@ int main(void)
 	//Set ARR
 	TIM1->ARR = 1000;
 	//Set duty cycle
-	TIM1->CCR1 = 500;
+	TIM1->CCR1 = 750;
 
 	//Set the output compare mode to PWM Mode 1
 	TIM1->CCMR1 &= ~(TIM_CCMR1_OC1M_0);
