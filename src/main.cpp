@@ -64,6 +64,8 @@ int main(void)
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
 	//Set alternate function mode PA8
 	GPIOA->MODER |= GPIO_MODER_MODER8_1;
+	//set the specific alternate function
+	GPIOA->AFR[1] |= GPIO_AF_TIM1;
 
 	//Set prescaler
 	TIM1->PSC = 1000;
