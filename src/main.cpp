@@ -77,6 +77,19 @@ int main(void)
 	TIM1->CCMR1 |= TIM_CCMR1_OC1M_1;
 	TIM1->CCMR1 |= TIM_CCMR1_OC1M_2;
 
+	//Set output compare preload enable
+	TIM1->CCMR1 |= TIM_CCMR1_OC1PE;
+
+	//Enable capture/compare output
+	TIM1->CCER |= TIM_CCER_CC1E;
+
+	//set main Output Enable
+	TIM1->BDTR |= TIM_BDTR_MOE;
+
+	//Enable the UG bit to update preload register
+	TIM1->EGR |= TIM_EGR_UG;
+
+
 	//Enable timer 1
 	TIM1->CR1 |= TIM_CR1_CEN;
 
