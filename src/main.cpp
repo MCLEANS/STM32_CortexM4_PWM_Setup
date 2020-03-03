@@ -12,7 +12,7 @@
 #include "stm32f4xx.h"
 
 
-int duty_cycle = 400;
+int duty_cycle = 50;
 
 int main(void)
 {
@@ -73,7 +73,7 @@ int main(void)
 	//Set prescaler
 	TIM1->PSC = 1000;
 	//Set ARR
-	TIM1->ARR = 1000;
+	TIM1->ARR = 100;
 	//Set duty cycle
 	TIM1->CCR1 = duty_cycle;
 
