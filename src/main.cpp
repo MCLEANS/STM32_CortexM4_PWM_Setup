@@ -12,8 +12,7 @@
 #include "stm32f4xx.h"
 
 
-uint64_t  duration = 100000;
-int duty_cycle = 100;
+int duty_cycle = 400;
 
 int main(void)
 {
@@ -72,9 +71,9 @@ int main(void)
 	GPIOA->AFR[1] &= ~(1<<3);
 
 	//Set prescaler
-	TIM1->PSC = 10000;
+	TIM1->PSC = 1000;
 	//Set ARR
-	TIM1->ARR = 8400;
+	TIM1->ARR = 1000;
 	//Set duty cycle
 	TIM1->CCR1 = duty_cycle;
 
