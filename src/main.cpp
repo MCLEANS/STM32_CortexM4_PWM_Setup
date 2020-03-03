@@ -41,6 +41,7 @@ int main(void)
 			//set PLL division factor for main system clock to 2
 			RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLP;
 
+
 			//Set APB1 clock frequency to 42MHz(prescaler of 4)
 			RCC->CFGR &= ~RCC_CFGR_PPRE1;
 			RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
