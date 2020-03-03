@@ -11,7 +11,9 @@
 
 #include "stm32f4xx.h"
 
-			
+
+uint64_t  duration = 100000;
+int duty_cycle = 100;
 
 int main(void)
 {
@@ -74,7 +76,7 @@ int main(void)
 	//Set ARR
 	TIM1->ARR = 1000;
 	//Set duty cycle
-	TIM1->CCR1 = 800;
+	TIM1->CCR1 = duty_cycle;
 
 	//Set the output compare mode to PWM Mode 1
 	TIM1->CCMR1 &= ~(TIM_CCMR1_OC1M_0);
@@ -99,6 +101,11 @@ int main(void)
 
 
 	while(1){
+
+		for(uint64_t i = 0; i<duration; i++);
+		duty_cycle += 100;
+
+		TIM1->CCR1 = duty_cycle;
 
 	}
 }
