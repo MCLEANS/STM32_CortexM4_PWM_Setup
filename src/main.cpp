@@ -72,9 +72,9 @@ int main(void)
 	GPIOA->AFR[1] &= ~(1<<3);
 
 	//Set prescaler
-	TIM1->PSC = 1000;
+	TIM1->PSC = 10000;
 	//Set ARR
-	TIM1->ARR = 1000;
+	TIM1->ARR = 8400;
 	//Set duty cycle
 	TIM1->CCR1 = duty_cycle;
 
@@ -102,10 +102,7 @@ int main(void)
 
 	while(1){
 
-		for(uint64_t i = 0; i<duration; i++);
-		duty_cycle += 100;
 
-		TIM1->CCR1 = duty_cycle;
 
 	}
 }
